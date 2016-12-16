@@ -18,7 +18,7 @@ fi
 
 if [ "$1" = "build" ];
   then
-    sudo docker build -t louwii/php-apache-simple .
+    sudo docker build -t louwii/simple-webserver .
 fi
 
 if [ "$1" = "run" ];
@@ -29,5 +29,5 @@ if [ "$1" = "run" ];
      -p $LOCAL_PORT:$REMOTE_PORT \
      -v $(pwd)/server-conf/site.conf:/etc/apache2/sites-enabled/site.conf \
      -v $(pwd)/src:/var/www/site \
-     louwii/php-apache-simple
+     louwii/simple-webserver
 fi
