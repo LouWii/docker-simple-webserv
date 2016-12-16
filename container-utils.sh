@@ -23,7 +23,7 @@ fi
 
 if [ "$1" = "run" ];
   then
-    docker run \
+    sudo docker run \
      -d \
      --name $CONTAINER_NAME \
      -p $LOCAL_PORT:$REMOTE_PORT \
