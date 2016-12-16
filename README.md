@@ -2,7 +2,7 @@
 
 The goal of this setup is to provide a quick and easy to use starting point for creating and handling a PHP webserver in a Docker container.
 
-The container is built with Apache and PHP, based on the [official PHP images](https://hub.docker.com/_/php/).
+The container is built with Apache and PHP, based on the `php:7.0-apache` image from the [official PHP images](https://hub.docker.com/_/php/).
 
 We're adding several commonly used PHP extension (easily removable):
 
