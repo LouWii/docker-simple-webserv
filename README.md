@@ -54,6 +54,25 @@ If you want to **add a PHP extension**, same thing, add it to the file. However,
 
 There's nothing complex in that script. Do not hesitate to have a look at it and modify it to suit your needs.
 
+## Using `docker-compose`
+
+Docker has its own tool to setup a group of container as a service, called `docker-compose`.
+
+We've created a general `docker-compose.yml` with a `.env` file that will allow you to easily run the db server and web server together. All important variables that needs changing are located in the `.env` file.
+
+Note that the db server is using a **persistent volume**. That means if you stop and delete the db container, the data will stay untouched. You will be able to start a new container and keep the same data (database, tables but also database root password and user login).
+
+If you need to start again with no data, you can either delete the volume or change the volume name in `docker-compose.yml`.
+
+To delete the volume, run `sudo docker volume ls` to list all volumes.
+
+```
+DRIVER              VOLUME NAME
+local               dockersimplewebserv_db_data
+```
+
+Run `sudo docker volume rm dockersimplewebserv_db_data` to delete the volume. **All data will be lost**
+
 ## License
 
 GNU GPLv3, see [License](LICENSE).
