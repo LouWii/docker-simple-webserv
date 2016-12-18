@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+   site_db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+       - ./database-init:/docker-entrypoint-initdb.d
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+       MYSQL_DATABASE: $DB_DATABASE_NAME
+       MYSQL_USER: $DB_USER
+       MYSQL_PASSWORD: $DB_PASSWORD
+
+   site:
+     depends_on:
+       - ${DB_CONTAINER_NAME}
+     image: louwii/simple-webserver
+     volumes:
+       - ./server-conf/site.conf:/etc/apache2/sites-enabled/site.conf
+       - ./src:/var/www/site
+     ports:
+       - "8080:80"
+     restart: always
+     environment:
+       LOCAL_DB_HOST: site_db:3306
+       LOCAL_DB_USER: $DB_USER
+       LOCAL_DB_PASSWORD: $DB_PASSWORD
+volumes:
+    db_data:
