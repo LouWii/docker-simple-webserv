@@ -15,9 +15,11 @@ We're adding several commonly used PHP extension (easily removable):
 * mbstring
 * mcrypt
 * mysqli
+* opcache
 * pdo_mysql
 * pdo_pgsql
 * pgsql
+* xml
 * zip
 
 And a script to make your life easier for building and running your container.
