@@ -15,6 +15,7 @@ We're adding several commonly used PHP extension (easily removable):
 * mbstring
 * mcrypt
 * mysqli
+* tidy
 * opcache
 * pdo_mysql
 * pdo_pgsql

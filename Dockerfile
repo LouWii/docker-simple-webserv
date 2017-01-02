@@ -15,9 +15,10 @@ RUN buildDeps=" \
         libpng12-dev \
         libpq-dev \
         libxml2-dev \
+        libtidy-dev \
     " \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $buildDeps $runtimeDeps \
-    && docker-php-ext-install bz2 calendar curl iconv intl mbstring mcrypt mysqli opcache pdo_mysql pdo_pgsql pgsql xml zip \
+    && docker-php-ext-install bz2 calendar curl iconv intl mbstring mcrypt mysqli opcache pdo_mysql pdo_pgsql pgsql tidy xml zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
     
